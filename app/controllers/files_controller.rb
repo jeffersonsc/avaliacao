@@ -1,0 +1,42 @@
+class FilesController < ApplicationController
+	def index
+		@files = FileLog.all 	
+	end
+
+	def new
+		@file = FileLog.new
+	end
+
+	def create
+		@file = FileLog.new(set_params) 
+
+		if !set_params["file"].nil?
+			original_file = params[:file_log][:file]
+			@file.original_filename = original_file.original_filename
+			@file.name = "#{Time.now.month}#{Time.now.year}#{Time.now.hour}#{Time.now.min}-#{original_file.original_filename}"
+			@file.content_type = original_file.content_type
+		end
+		
+		if @file.save
+			#Cria uma arquivo no tmp para ser processado			
+			File.open(Rails.root.join("tmp", @file.name ), "wb") do |f|
+				f.write(original_file.read)
+			end
+			#Instancia a classe que irá processar o arquivo
+			ProcessFile.new(@file.name).execute
+			flash[:notice] = "Arquivo importado com sucesso"
+			redirect_to orders_url
+		else
+			render :new
+		end
+	end
+
+	private
+	def set_params
+		if params[:file_log].nil?
+			return {"file" => nil}
+		else
+		 return params.require(:file_log).permit(:file)
+		end
+	end
+end

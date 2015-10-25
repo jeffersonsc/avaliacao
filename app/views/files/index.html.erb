@@ -1,0 +1,18 @@
+<h1>Arquivos já importados</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Data de importação</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @files.each do |file| %>
+			<tr>
+				<td><%= file.original_filename %></td>
+				<td><%= date_time(file.created_at) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

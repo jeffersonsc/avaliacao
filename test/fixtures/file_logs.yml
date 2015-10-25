@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: Arquivo 01
+  content_type: text/plain
+
+two:
+  id: 2
+  name: Arquivo 02
+  content_type:  text/palin

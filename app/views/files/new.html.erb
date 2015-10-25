@@ -1,0 +1,13 @@
+<h1>Importar arquivo</h1>
+
+<p>Por favor selecione um arquivo e depois clique em importar </p>
+
+
+<%= form_for(@file, url: files_url ,  html: {multpart: true}, method: :post) do |f| %>
+	<%= f.label :arquivo %>: <%= f.file_field :file %> <br />
+
+	<%= @file.errors[:file][0] %> <br />
+
+
+	<%= f.submit "Enviar" %>
+<% end %>

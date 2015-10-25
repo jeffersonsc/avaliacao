@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: Teste01
+  price: 9.99
+
+two:
+  id: 2
+  name: Teste02
+  price: 9.99

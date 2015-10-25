@@ -10,11 +10,9 @@ Para usar a aplicação você precisa:
 
 * Configuration
 
-* Criação do banco
-	- Usar o comando "rake db:create"
+* Criação do banco usar o comando "rake db:create"
 
-* Inicialização do banco
-	- Usar o comando "rake db:migrate"
+* Inicialização do banco usar o comando "rake db:migrate"
 
 * How to run the test suite
 
@@ -22,8 +20,7 @@ Para usar a aplicação você precisa:
 
 * Deployment instructions
 
-* Para executar
-	- Usar o comando "rails s"
+* Para executar usar o comando "rails s"
 
 
 Please feel free to use a different markup language if you do not plan to run
