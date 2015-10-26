@@ -1,13 +1,11 @@
-<h1>Importar arquivo</h1>
+<h3>Importar arquivo</h3>
 
-<p>Por favor selecione um arquivo e depois clique em importar </p>
+<%= form_for(@file, url: files_url ,  html: {multpart: true , :class => "form"}, method: :post) do |f| %>
+	<p>Por favor selecione um arquivo e depois clique em importar </p>
 
-
-<%= form_for(@file, url: files_url ,  html: {multpart: true}, method: :post) do |f| %>
-	<%= f.label :arquivo %>: <%= f.file_field :file %> <br />
-
-	<%= @file.errors[:file][0] %> <br />
-
-
-	<%= f.submit "Enviar" %>
+	<div class="form-group">
+		<%= f.file_field :file, :class => "form-control" %>
+		<%= @file.errors[:file][0] %>
+	</div>
+	<%= f.submit "Enviar" , :class => "btn btn-md btn-success" %>
 <% end %>

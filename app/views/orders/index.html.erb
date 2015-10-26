@@ -1,38 +1,61 @@
-<h1>Lançamentos</h1>
-<p>Lançamentos importados</p>
+<h3>Lançamentos</h3>
+<div class="row">
+	<div class="col-sm-12 col-md-9">
+		<div class="col-sm-12 sidebox">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Cliente</th>
+						<th>Descrição</th>
+						<th>Preço uni.</th>
+						<th>Quantidade</th>
+						<th>Endereço</th>
+						<th>Fonecedor</th>
+						<th>Criado em</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @orders.each do |order| %>
+						<tr>
+							<td> <%= order.customer.name %> </td>
+							<td> <%= order.product.name %> </td>
+							<td> R$ <%= currency(order.product.price) %> </td>
+							<td> <%= order.amount %> </td>
+							<td> <%= order.address.street %> </td>
+							<td> <%= order.provider.name %> </td>
+							<td> <%= date_time(order.created_at) %></td>
+							<td>
+								R$ <%= currency(total(order.amount, order.unit_price)) %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="7"><span class="pull-right">Total</span></th>
+						<td id="total_gross">R$ <%= @total[0] %></td>
+					</tr>
+				</tfoot>
+			</table>
 
-<table>
-	<thead>
-		<tr>
-			<th>Cliente</th>
-			<th>Descrição</th>
-			<th>Preço unitário</th>
-			<th>Quantidade</th>
-			<th>Endereço</th>
-			<th>Fonecedor</th>
-			<th>Data de criação</th>
-			<th>Total</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @orders.each do |order| %>
-			<tr>
-				<td> <%= order.customer.name %> </td>
-				<td> <%= order.product.name %> </td>
-				<td> R$ <%= currency(order.product.price) %> </td>
-				<td> <%= order.amount %> </td>
-				<td> <%= order.address.street %> </td>
-				<td> <%= order.provider.name %> </td>
-				<td> <%= date_time(order.created_at) %></td>
-				<td> R$ <% @total += total(order.amount, order.unit_price) %> <%= currency(total(order.amount, order.unit_price)) %></td>
-			</tr>
-		<% end %>
-	</tbody>
-	<tfoot>
-		<tr>
-			<td colspan="7">Total</td>
-			<td>R$ <%= @total %></td>
-		</tr>
-	</tfoot>
-</table>
+			<%= will_paginate(@orders) %>
+		</div>
+	</div>	
+	<div class="col-sm-12 col-md-3">
+		<div class="col-sm-12 sidebox sidebox-button">
+			<h5>Informações gerais</h5>
+			<p> - Total de clientes castrados: <%= @total_customers.to_i %></p>
+			<p> - Total de produtos cadatrados: <%= @total_products.to_i %></p>
+			<p> - Total de fornecedores cadatrados: <%= @total_providers.to_i %></p>
+			<p> - Total de ordens cadastradas: <%= @total[1] %></p>
 
+			<h5> Total bruto <%= @total[0].round(2) %> </h5>
+		</div>
+		<div class="col-sm-12 sidebox sidebox-button">
+			<div class="sidebox-button text-center">
+				<%= link_to "Importar um arquivo" , import_file_url , :class => "btn btn-lg btn-primary" %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+	background-color: #C0C0C0;
+}
+
+.form {
+	background-color: #FFFFFF;
+	padding: 20px;
+}
+
+.sidebox{
+	background-color: #FFFFFF;
+	margin-top: 10px;
+}
+
+.sidebox-button{
+	padding: 20px;
+}
+
+
+.my-continer{
+	margin: 0 50px 0 50px;
+}
+
