@@ -8,6 +8,8 @@ Para usar a aplicação você precisa:
 
 * Rails 4.1+
 
+* Banco de dados SqLite 3
+
 * Fazer o clone da aplicação usando o comando "git clone https://github.com/jeffersonsc/avaliacao.git"
 
 * Rodar o comando "bundle install"
