@@ -7,5 +7,6 @@
 		<%= f.file_field :file, :class => "form-control" %>
 		<%= @file.errors[:file][0] %>
 	</div>
+	<%= link_to "Voltar", files_url , :class => "btn btn-md btn-primary" %>
 	<%= f.submit "Enviar" , :class => "btn btn-md btn-success" %>
 <% end %>
