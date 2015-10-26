@@ -37,3 +37,7 @@ body{
 	margin: 0 50px 0 50px;
 }
 
+.table-nowrap{
+	white-space: nowrap;
+}
+
