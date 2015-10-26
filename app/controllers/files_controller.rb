@@ -26,7 +26,7 @@ class FilesController < ApplicationController
 			end
 
 			run_rake("fileprocess:execute")
-			flash[:notice] = "Arquivo importado com sucesso"
+			flash[:notice] = "Arquivo importado com sucesso. Em alguns minutos será importado para o banco de dados"
 			redirect_to files_url
 		else
 			render :new

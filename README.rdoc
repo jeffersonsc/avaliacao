@@ -1,6 +1,6 @@
 == README
 
-Aplicação para importação de arquivo de balanco e listagem dos valores. A importação é feita da seguinte forma, ao selecionar um arquivo é chamado uma tarefa que em bacground faz a importação
+Aplicação para importação de arquivo de balanco e listagem dos valores. A importação é feita da seguinte forma: ao selecionar um arquivo e realizar o upload do arquivo uma callback chama uma tarefa que em backround faz a importação das informações do arquivo para o banco e salva os registros em suas respectivas tabelas verificando a existência do mesmo para que não haja redundância dos dados.
 
 Para usar a aplicação você precisa:
 
