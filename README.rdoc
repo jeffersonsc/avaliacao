@@ -1,6 +1,6 @@
 == README
 
-Aplicação para importação de arquivo de balanco e listagem dos valores.
+Aplicação para importação de arquivo de balanco e listagem dos valores. A importação é feita da seguinte forma, ao selecionar um arquivo é chamado uma tarefa que em bacground faz a importação
 
 Para usar a aplicação você precisa:
 
@@ -8,20 +8,12 @@ Para usar a aplicação você precisa:
 
 * Rails 4.1+
 
-* Configuration
+* Fazer o clone da aplicação usando o comando "git clone https://github.com/jeffersonsc/avaliacao.git"
+
+* Rodar o comando "bundle install"
 
 * Criação do banco usar o comando "rake db:create"
 
-* Inicialização do banco usar o comando "rake db:migrate"
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Carregar as migrates "rake db:migrate"
 
 * Para executar usar o comando "rails s"
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
